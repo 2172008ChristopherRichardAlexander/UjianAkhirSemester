@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .container{
+            height: 300px;
+            width: 900px;
+            margin: 100px auto;
+            
+        }
+        .icon{
+            width: 256px;
+            height: 144px;
+            background-size: cover;
+            margin: auto;
+        }
+        .kotak{
+            float: left;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+        }
+        #nama1, #nama2, #nama3{
+            text-align: center;
+            color: white;
+            font-size: xx-large;
+        }
+
+        .icon:hover{
+            cursor: pointer;
+            border: 2px solid red;
+        }
+        body{
+            background-image: url("background.jpg");
+            background-size: cover;
+        }
+        h1{
+            text-align: center;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="data.html" method="get">
+        <h1>Pick Your Hero</h1>
+        <div class="container">
+            <div id="kotak1" class="kotak">
+                <input onclick="sendData('1')" src="polosan.png" type="image" class="icon" id="gbr1">
+                <div id="nama1"></div>
+            </div>
+            <div id="kotak2" class="kotak">
+                <input onclick="sendData('2')" src="polosan.png" type="image" class="icon" id="gbr2">
+                <div id="nama2"></div>
+            </div>
+            <div id="kotak3" class="kotak">
+                <input onclick="sendData('3')" src="polosan.png" type="image" class="icon" id="gbr3">
+                <div id="nama3"></div>
+            </div>
+        </div>
+    </form>
+    <script>
+        $.getJSON("https://api.opendota.com/api/heroStats ", function(result){
+            for(let i=0; i<3;i++){
+                let x = i+1;
+                const values = Object.values(result);
+                const nilairandom = values[parseInt(Math.random()*values.length)]
+                document.getElementById("gbr"+x).style.backgroundImage="url('https://api.opendota.com"+nilairandom.img+"')";
+                document.querySelector("#nama"+x).innerHTML=nilairandom.localized_name;
+                document.getElementById("gbr"+x).value="url('https://api.opendota.com"+nilairandom.img+"')";
+                document.getElementById("gbr"+x).setAttribute("alt",nilairandom.id);
+            }
+        });
+        function sendData(user){
+            var firstname=document.getElementById("gbr"+user).value;
+            var secondname=document.getElementById("gbr"+user).alt;
+            localStorage.setItem("textvalue", firstname)
+            localStorage.setItem("textvalue2", secondname)
+            return false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #result{
+            width: 256px;
+            height: 144px;
+            background-size: cover;
+            margin: auto;
+        }
+        .container{
+            width: 600px;
+            height: 600px;
+            margin: auto;
+            background-color: black;
+            color: white;
+            font-size: xx-large;
+        }
+        .kotak{
+            text-align: center;
+        }
+        #attack{
+            float: right;
+        }
+        #name{
+            margin-top: 40px;
+        }
+        #health{
+            margin-top: 40px;
+        }
+        #baseattack{
+            margin-top: 40px;
+        }
+        #icon{
+            margin-top: 40px;
+        }
+        #next{
+            width: 598px;
+            height: 54px;
+            margin-top: 90px;
+        }
+        #next:hover{
+            background-color: white;
+            transition: 0.2s;
+            cursor: pointer;
+            color: black;
+            border: 1px solid black;
+        }
+        body{
+            background-image: url("background.jpg");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <form action="game.html" method="get">
+        <div class="container">
+            <div id="attack"></div>
+            <div class="kotak">
+                <div id="result"></div>
+                <div id="name"></div>
+                <div id="health"></div>
+                <div id="baseattack"></div>
+                <div id="icon"></div>
+                <div id="next" >Let's play the game</div>
+            </div>
+        </div>
+    </form>
+    <script>
+        document.getElementById("result").style.backgroundImage=localStorage.getItem("textvalue");
+        $.getJSON("https://api.opendota.com/api/heroStats ", function(result){
+            var hasil = localStorage.getItem("textvalue");
+            var hasil2 = localStorage.getItem("textvalue2");
+            for(let i=0;i<result.length;i++){
+                if(hasil2 == result[i].id){
+                    document.querySelector("#name").innerHTML="Hero name: "+result[i].localized_name;
+                    var atr = result[i].primary_attr;
+                    var base = parseInt(result[i].base_attack_min);
+                    var bonusstr = parseInt(result[i].base_str);
+                    var bonusagi = parseInt(result[i].base_agi);
+                    var bonusint = parseInt(result[i].base_int);
+                    var bonushealth = bonusstr*20;
+                    var health = parseInt(result[i].base_health);
+                    var totalhealth = bonushealth+health
+                    if(atr == "str"){
+                        document.getElementById("attack").innerHTML="<img src='str.jpg' width='80px'>";
+                        document.getElementById("baseattack").innerHTML="Attack: "+ (base + bonusstr);
+                    }
+                    if(atr == "agi"){
+                        document.getElementById("attack").innerHTML="<img src='agi.jpg' width='80px'>";
+                        document.getElementById("baseattack").innerHTML="Attack: "+ (base + bonusagi);
+                    }
+                    if(atr == "int"){
+                        document.getElementById("attack").innerHTML="<img src='int.jpg' width='80px'>";
+                        document.getElementById("baseattack").innerHTML="Attack: "+ (base + bonusint);
+                    }
+                    document.getElementById("health").innerHTML="Health: "+totalhealth;
+                    document.getElementById("icon").innerHTML="Icon: <img src='https://api.opendota.com"+result[i].icon+"'>";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
