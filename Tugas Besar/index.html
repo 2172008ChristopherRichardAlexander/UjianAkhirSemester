@@ -23,6 +23,7 @@
             float: left;
             width: 300px;
             height: 300px;
+            text-align: center;
         }
         #nama1, #nama2, #nama3{
             text-align: center;
@@ -32,8 +33,7 @@
 
         .icon:hover{
             cursor: pointer;
-            width: 400px;
-            height: 300px;
+            border: 2px solid red;
         }
         body{
             background-image: url("background.jpg");
@@ -47,32 +47,42 @@
     </style>
 </head>
 <body>
-    <h1>Pick Your Hero</h1>
-    <div class="container">
-        <div id="kotak1" class="kotak">
-            <div class="icon" id="gbr1"></div>
-            <div id="nama1"></div>
+    <form action="data.html" method="get">
+        <h1>Pick Your Hero</h1>
+        <div class="container">
+            <div id="kotak1" class="kotak">
+                <input onclick="sendData('1')" src="polosan.png" type="image" class="icon" id="gbr1">
+                <div id="nama1"></div>
+            </div>
+            <div id="kotak2" class="kotak">
+                <input onclick="sendData('2')" src="polosan.png" type="image" class="icon" id="gbr2">
+                <div id="nama2"></div>
+            </div>
+            <div id="kotak3" class="kotak">
+                <input onclick="sendData('3')" src="polosan.png" type="image" class="icon" id="gbr3">
+                <div id="nama3"></div>
+            </div>
         </div>
-        <div id="kotak2" class="kotak">
-            <div class="icon" id="gbr2"></div>
-            <div id="nama2"></div>
-        </div>
-        <div id="kotak3" class="kotak">
-            <div class="icon" id="gbr3"></div>
-            <div id="nama3"></div>
-        </div>
-    </div>
+    </form>
     <script>
         $.getJSON("https://api.opendota.com/api/heroStats ", function(result){
             for(let i=0; i<3;i++){
                 let x = i+1;
                 const values = Object.values(result);
                 const nilairandom = values[parseInt(Math.random()*values.length)]
-                console.log(result);
                 document.getElementById("gbr"+x).style.backgroundImage="url('https://api.opendota.com"+nilairandom.img+"')";
                 document.querySelector("#nama"+x).innerHTML=nilairandom.localized_name;
+                document.getElementById("gbr"+x).value="url('https://api.opendota.com"+nilairandom.img+"')";
+                document.getElementById("gbr"+x).setAttribute("alt",nilairandom.id);
             }
         });
+        function sendData(user){
+            var firstname=document.getElementById("gbr"+user).value;
+            var secondname=document.getElementById("gbr"+user).alt;
+            localStorage.setItem("textvalue", firstname)
+            localStorage.setItem("textvalue2", secondname)
+            return false;
+        }
     </script>
 </body>
 </html>
