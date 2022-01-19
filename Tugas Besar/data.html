@@ -67,14 +67,13 @@
                 <div id="health"></div>
                 <div id="baseattack"></div>
                 <div id="icon"></div>
-                <div id="next" >Let's play the game</div>
+                <div id="next" onclick="location.href='game.html'" >Let's play the game</div>
             </div>
         </div>
     </form>
     <script>
         document.getElementById("result").style.backgroundImage=localStorage.getItem("textvalue");
         $.getJSON("https://api.opendota.com/api/heroStats ", function(result){
-            var hasil = localStorage.getItem("textvalue");
             var hasil2 = localStorage.getItem("textvalue2");
             for(let i=0;i<result.length;i++){
                 if(hasil2 == result[i].id){

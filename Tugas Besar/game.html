@@ -5,8 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #result{
+            width: 32px;
+            height: 32px;
+            float: left;
+        }
+        .kotak{
+            border: 2px solid black;
+            height: 40px;
+            width: 250px;
+            float: left;
+        }
+        #health{
+            text-align: center;
+        }
+        .hp{
+            float: left;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="result"></div>
+    <div class="kotak" id="player"></div>
+    <button onclick="coba()"></button> 
+    <script>
+        $.getJSON("https://api.opendota.com/api/heroStats ", function(result){
+            var hasil = localStorage.getItem("textvalue2");
+            for(let i = 0;i<result.length;i++){
+                if(hasil==result[i].id){
+                    document.querySelector("#result").innerHTML="<img src='https://api.opendota.com"+ result[i].icon+"'>"
+                    var atr = result[i].primary_attr;
+                    var base = parseInt(result[i].base_attack_min);
+                    var bonusstr = parseInt(result[i].base_str);
+                    var bonusagi = parseInt(result[i].base_agi);
+                    var bonusint = parseInt(result[i].base_int);
+                    var bonushealth = bonusstr*20;
+                    var health = parseInt(result[i].base_health);
+                    var totalhealth = bonushealth+health;
+                }
+            }
+            var x = 0;
+            for(let i=0;i<totalhealth;i+=20){
+                x++;
+                document.querySelector("#player").innerHTML+="<div class='hp' id='hp"+x+"'></div>";  
+            }
+            let y = 250/x;
+            for(let i=1;i<=x;i++){
+                document.getElementById("hp"+i).style.width=y+"px";
+                document.getElementById("hp"+i).style.height="40px";
+                document.getElementById("hp"+i).style.background="green"
+            }
+            var nyawa = totalhealth;
+          });
+          var nyawa=700;
+        function coba(){
+            var x=35;
+            let attack=Math.floor(Math.random() * (70 - 30 + 1) ) + 30;
+            nyawa=nyawa-attack;
+            for(let i=700;i>nyawa;i-=20){
+                document.getElementById("hp"+x).style.background="white";
+                x--;
+            }
+            console.log(attack)
+        }
+    </script>
 </body>
 </html>
