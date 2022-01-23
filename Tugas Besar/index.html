@@ -7,82 +7,108 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
-        .container{
-            height: 300px;
-            width: 900px;
-            margin: 100px auto;
-            
-        }
-        .icon{
-            width: 256px;
-            height: 144px;
-            background-size: cover;
-            margin: auto;
-        }
-        .kotak{
-            float: left;
-            width: 300px;
-            height: 300px;
-            text-align: center;
-        }
-        #nama1, #nama2, #nama3{
-            text-align: center;
-            color: white;
-            font-size: xx-large;
-        }
-
-        .icon:hover{
-            cursor: pointer;
-            border: 2px solid red;
-        }
         body{
             background-image: url("background.jpg");
             background-size: cover;
+            margin: 0%;
+        }
+        .navbar{
+            width: 100%;
+            height: 70px;
+            background-color: chocolate;
+        }
+        .home{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .heroes{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .games{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .right{
+            float: right;
+            width: 100px;
+        }
+        .about{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
         }
         h1{
             text-align: center;
             color: white;
         }
-
+        .sub1, .sub2, .sub3{
+            width: 500px;
+            margin: auto;
+            font-size: xx-large;
+            
+        }
+        .one, .two, .three{
+            text-align: center;
+            color: antiquewhite;
+        }
+        .gbr1{
+            margin: auto;
+            text-align: center;
+            width: 500px;
+            height: 300px;
+        }
+        .trans:hover ,.gbr1{
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: 0.3;
+        }
+        img{
+            margin: auto;
+            text-align: center;
+            width: 500px;
+            height: 300px;
+        }
+        
     </style>
 </head>
 <body>
-    <form action="data.html" method="get">
-        <h1>Pick Your Hero</h1>
-        <div class="container">
-            <div id="kotak1" class="kotak">
-                <input onclick="sendData('1')" src="polosan.png" type="image" class="icon" id="gbr1">
-                <div id="nama1"></div>
-            </div>
-            <div id="kotak2" class="kotak">
-                <input onclick="sendData('2')" src="polosan.png" type="image" class="icon" id="gbr2">
-                <div id="nama2"></div>
-            </div>
-            <div id="kotak3" class="kotak">
-                <input onclick="sendData('3')" src="polosan.png" type="image" class="icon" id="gbr3">
-                <div id="nama3"></div>
+    <div class="navbar">
+        <div class="home">Home</div>
+        <div class="heroes">Heroes</div>
+        <div class="games">Games</div>
+        <div class="right">
+            <div class="about">About Us</div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="sub1">
+        <h1>Welcome to Dota2</h1>
+            <img src="dota.jpg">
+            <p class="one">Every day, millions of players worldwide enter the battle as one of over a hundred Dota Heroes in a 5v5 team clash. Dota is the deepest multi-player action RTS game ever made and there's always a new strategy or tactic to discover. It's completely free to play and always will be – start defending your ancient now.</p>
+        </div>
+        <div class="sub2">
+            <h1>Who will you choose?</h1>
+            <p class="two">From magical tacticians to fierce brutes and cunning rogues, Dota 2's hero pool is massive and limitlessly diverse. Unleash incredible abilities and devastating ultimates on your way to victory.</p>
+            <div class="trans">
+                <img onclick="href=location.href='heroes.html'" class="gbr1" src="heroes.jpg">
             </div>
         </div>
-    </form>
-    <script>
-        $.getJSON("https://api.opendota.com/api/heroStats ", function(result){
-            for(let i=0; i<3;i++){
-                let x = i+1;
-                const values = Object.values(result);
-                const nilairandom = values[parseInt(Math.random()*values.length)]
-                document.getElementById("gbr"+x).style.backgroundImage="url('https://api.opendota.com"+nilairandom.img+"')";
-                document.querySelector("#nama"+x).innerHTML=nilairandom.localized_name;
-                document.getElementById("gbr"+x).value="url('https://api.opendota.com"+nilairandom.img+"')";
-                document.getElementById("gbr"+x).setAttribute("alt",nilairandom.id);
-            }
-        });
-        function sendData(user){
-            var firstname=document.getElementById("gbr"+user).value;
-            var secondname=document.getElementById("gbr"+user).alt;
-            localStorage.setItem("textvalue", firstname);
-            localStorage.setItem("textvalue2", secondname);
-            return false;
-        }
-    </script>
+        <div class="sub3">
+            <h1>Play Minigames</h1>
+            <img src="minigames.jpg">
+            <p class="three">We make 2 minigames for you. Play and win it and tell us about your experience!</p>
+        </div>
+    </div>
 </body>
 </html>

@@ -54,6 +54,7 @@
         body{
             background-image: url("background.jpg");
             background-size: cover;
+            margin: 0%;
         }
         #history{
             margin-top: 5000px;
@@ -66,7 +67,7 @@
             clear: left;
             clear: right;
             position: absolute;
-            top: 100px;
+            top: 150px;
             left: 260px;
             background-color: white;
         }
@@ -79,9 +80,53 @@
         #game3:hover{
             cursor: pointer;
         }
+        .navbar{
+            width: 100%;
+            height: 70px;
+            background-color: chocolate;
+        }
+        .home{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .heroes{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .games{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .right{
+            float: right;
+            width: 100px;
+        }
+        .about{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+        }
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <div class="home">Home</div>
+        <div class="heroes">Heroes</div>
+        <div class="games">Games</div>
+        <div class="right">
+            <div class="about">About Us</div>
+        </div>
+    </div>
     <div class="container1">
         <div id="result"></div>
         <div class="kotak" id="player"></div>
