@@ -23,6 +23,7 @@
             text-align: center;
             padding-top: 20px;
             float: left;
+            background-color: orangered;
         }
         .heroes{
             width: 100px;
@@ -79,22 +80,41 @@
             width: 500px;
             height: 300px;
         }
-        
+        .heroes:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .games:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .about:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        img:hover{
+            filter: blur(4px);
+        }
+        .sub3:hover{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
         <div class="home">Home</div>
-        <div class="heroes">Heroes</div>
-        <div class="games">Games</div>
+        <div class="heroes" onclick="href=location.href='heroes.html'">Heroes</div>
+        <div onclick="href=location.href='menu.html'" class="games">Games</div>
         <div class="right">
-            <div class="about">About Us</div>
+            <div onclick="href=location.href='about.html'" class="about">About Us</div>
         </div>
     </div>
     <div class="content">
         <div class="sub1">
         <h1>Welcome to Dota2</h1>
-            <img src="dota.jpg">
             <p class="one">Every day, millions of players worldwide enter the battle as one of over a hundred Dota Heroes in a 5v5 team clash. Dota is the deepest multi-player action RTS game ever made and there's always a new strategy or tactic to discover. It's completely free to play and always will be – start defending your ancient now.</p>
         </div>
         <div class="sub2">
@@ -106,7 +126,7 @@
         </div>
         <div class="sub3">
             <h1>Play Minigames</h1>
-            <img src="minigames.jpg">
+            <img onclick="href=location.href='menu.html'" src="minigames.jpg">
             <p class="three">We make 2 minigames for you. Play and win it and tell us about your experience!</p>
         </div>
     </div>

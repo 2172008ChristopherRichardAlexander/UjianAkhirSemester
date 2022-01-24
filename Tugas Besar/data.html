@@ -81,6 +81,7 @@
             text-align: center;
             padding-top: 20px;
             float: left;
+            background-color: orangered;
         }
         .right{
             float: right;
@@ -92,16 +93,35 @@
             text-align: center;
             padding-top: 20px;
         }
+        .home:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .about:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .games:hover{
+            
+            cursor: pointer;
+        }
+        .heroes:hover{
+            cursor: pointer;
+            background-color: darkorange;
+            transition: 0.5s;
+        }
     </style>
 </head>
 <body>
     <form action="game.html" method="get">
         <div class="navbar">
-        <div class="home">Home</div>
-        <div class="heroes">Heroes</div>
-        <div class="games">Games</div>
+        <div class="home" onclick="href=location.href='index.html'">Home</div>
+        <div onclick="href=location.href='heroes.html'" class="heroes">Heroes</div>
+        <div onclick="href=location.href='menu.html'" class="games">Games</div>
         <div class="right">
-            <div class="about">About Us</div>
+            <div onclick="href=location.href='about.html'" class="about">About Us</div>
         </div>
         </div>
         <div class="container">

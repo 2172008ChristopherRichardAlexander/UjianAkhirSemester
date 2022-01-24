@@ -61,7 +61,7 @@
         .all{
             text-align: center;
             width: 600px;
-            height: 600px;
+            height: 580px;
             margin: auto;
             background-color: rgb(54, 24, 24)
         }
@@ -103,6 +103,7 @@
             text-align: center;
             padding-top: 20px;
             float: left;
+            background-color: orangered;
         }
         .games{
             width: 100px;
@@ -121,15 +122,33 @@
             text-align: center;
             padding-top: 20px;
         }
+        .home:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .about:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .games:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .heroes:hover{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <div class="home">Home</div>
-        <div class="heroes">Heroes</div>
-        <div class="games">Games</div>
+        <div onclick="href=location.href='index.html'"  class="home">Home</div>
+        <div onclick="href=location.href='heroes.html'" class="heroes">Heroes</div>
+        <div onclick="href=location.href='menu.html'" class="games">Games</div>
         <div class="right">
-            <div class="about">About Us</div>
+            <div onclick="href=location.href='about.html'" class="about">About Us</div>
         </div>
     </div>
     <div class="all">
