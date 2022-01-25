@@ -6,100 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-        .container{
-            height: 300px;
-            width: 900px;
-            margin: 100px auto;
-        }
-        .icon{
-            width: 256px;
-            height: 144px;
-            background-size: cover;
-            margin: auto;
-        }
-        .kotak{
-            float: left;
-            width: 300px;
-            height: 300px;
-            text-align: center;
-        }
-        #nama1, #nama2, #nama3{
-            text-align: center;
-            color: white;
-            font-size: xx-large;
-        }
-
-        .icon:hover{
-            cursor: pointer;
-            border: 2px solid red;
-        }
-        body{
-            background-image: url("background.jpg");
-            background-size: cover;
-            margin: 0%;
-        }
-        h1{
-            text-align: center;
-            color: white;
-        }
-        .navbar{
-            width: 100%;
-            height: 70px;
-            background-color: chocolate;
-        }
-        .home{
-            width: 100px;
-            height: 50px;
-            text-align: center;
-            padding-top: 20px;
-            float: left;
-        }
-        .heroes{
-            width: 100px;
-            height: 50px;
-            text-align: center;
-            padding-top: 20px;
-            float: left;
-        }
-        .games{
-            width: 100px;
-            height: 50px;
-            text-align: center;
-            padding-top: 20px;
-            float: left;
-            background-color: orangered;
-        }
-        .right{
-            float: right;
-            width: 100px;
-        }
-        .about{
-            width: 100px;
-            height: 50px;
-            text-align: center;
-            padding-top: 20px;
-        }
-        .home:hover{
-            background-color: darkorange;
-            transition: 0.5s;
-            cursor: pointer;
-        }
-        .about:hover{
-            background-color: darkorange;
-            transition: 0.5s;
-            cursor: pointer;
-        }
-        .games:hover{
-            
-            cursor: pointer;
-        }
-        .heroes:hover{
-            cursor: pointer;
-            background-color: darkorange;
-            transition: 0.5s;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="singledraft.css">
 </head>
 <body>
     <form action="data.html" method="get">
@@ -127,46 +35,8 @@
             </div>
         </div>
     </form>
-    <script>
-        $.getJSON("https://api.opendota.com/api/heroStats ", function(result){
-            for(let i=0;i<result.length;i++){
-                const values = Object.values(result);
-                const nilairandom = values[parseInt(Math.random()*values.length)]
-                if(nilairandom.primary_attr=="str"){
-                    document.getElementById("gbr1").style.backgroundImage="url('https://api.opendota.com"+nilairandom.img+"')";
-                    document.querySelector("#nama1").innerHTML=nilairandom.localized_name;
-                    document.getElementById("gbr1").value="url('https://api.opendota.com"+nilairandom.img+"')";
-                    document.getElementById("gbr1").setAttribute("alt",nilairandom.id);
-                }
-            }
-            for(let i=0;i<result.length;i++){
-                const values = Object.values(result);
-                const nilairandom = values[parseInt(Math.random()*values.length)]
-                if(nilairandom.primary_attr=="agi"){
-                    document.getElementById("gbr2").style.backgroundImage="url('https://api.opendota.com"+nilairandom.img+"')";
-                    document.querySelector("#nama2").innerHTML=nilairandom.localized_name;
-                    document.getElementById("gbr2").value="url('https://api.opendota.com"+nilairandom.img+"')";
-                    document.getElementById("gbr2").setAttribute("alt",nilairandom.id);
-                }
-            }
-            for(let i=0;i<result.length;i++){
-                const values = Object.values(result);
-                const nilairandom = values[parseInt(Math.random()*values.length)]
-                if(nilairandom.primary_attr=="int"){
-                    document.getElementById("gbr3").style.backgroundImage="url('https://api.opendota.com"+nilairandom.img+"')";
-                    document.querySelector("#nama3").innerHTML=nilairandom.localized_name;
-                    document.getElementById("gbr3").value="url('https://api.opendota.com"+nilairandom.img+"')";
-                    document.getElementById("gbr3").setAttribute("alt",nilairandom.id);
-                }
-            }
-        });
-        function sendData(user){
-            var firstname=document.getElementById("gbr"+user).value;
-            var secondname=document.getElementById("gbr"+user).alt;
-            localStorage.setItem("textvalue", firstname);
-            localStorage.setItem("textvalue2", secondname);
-            return false;
-        }
+    <script src="singledraft.js">
+       
     </script>
 </body>
 </html>

@@ -1,0 +1,96 @@
+body{
+            background-image: url("background.jpg");
+            background-size: cover;
+            margin: 0%;
+            font-family: 'Dongle', sans-serif;
+        }
+        .navbar{
+            width: 100%;
+            height: 70px;
+            background-color: chocolate;
+            font-family: 'Playfair Display', serif;
+        }
+        .home{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+            background-color: orangered;
+        }
+        .heroes{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .games{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .right{
+            float: right;
+            width: 100px;
+        }
+        .about{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+        }
+        h1{
+            text-align: center;
+            color: white;
+        }
+        .sub1, .sub2, .sub3{
+            width: 500px;
+            margin: auto;
+            font-size: xx-large;
+            
+        }
+        .one, .two, .three{
+            text-align: center;
+            color: antiquewhite;
+        }
+        .gbr1{
+            margin: auto;
+            text-align: center;
+            width: 500px;
+            height: 300px;
+        }
+        .trans:hover ,.gbr1{
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: 0.3;
+        }
+        img{
+            margin: auto;
+            text-align: center;
+            width: 500px;
+            height: 300px;
+        }
+        .heroes:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .games:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .about:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        img:hover{
+            filter: blur(4px);
+        }
+        .sub3:hover{
+            cursor: pointer;
+        }

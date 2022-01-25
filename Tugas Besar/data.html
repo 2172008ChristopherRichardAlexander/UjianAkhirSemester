@@ -6,113 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-        #result{
-            width: 256px;
-            height: 144px;
-            background-size: cover;
-            margin: auto;
-        }
-        .container{
-            width: 600px;
-            height: 600px;
-            margin: auto;
-            background-color: black;
-            color: white;
-            font-size: xx-large;
-        }
-        .kotak{
-            text-align: center;
-        }
-        #attack{
-            float: right;
-        }
-        #name{
-            margin-top: 40px;
-        }
-        #health{
-            margin-top: 40px;
-        }
-        #baseattack{
-            margin-top: 40px;
-        }
-        #icon{
-            margin-top: 40px;
-        }
-        #next{
-            width: 598px;
-            height: 54px;
-            margin-top: 90px;
-        }
-        #next:hover{
-            background-color: white;
-            transition: 0.2s;
-            cursor: pointer;
-            color: black;
-            border: 1px solid black;
-        }
-        body{
-            background-image: url("background.jpg");
-            background-size: cover;
-            margin: 0%;
-        }
-        .navbar{
-            width: 100%;
-            height: 70px;
-            background-color: chocolate;
-        }
-        .home{
-            width: 100px;
-            height: 50px;
-            text-align: center;
-            padding-top: 20px;
-            float: left;
-        }
-        .heroes{
-            width: 100px;
-            height: 50px;
-            text-align: center;
-            padding-top: 20px;
-            float: left;
-        }
-        .games{
-            width: 100px;
-            height: 50px;
-            text-align: center;
-            padding-top: 20px;
-            float: left;
-            background-color: orangered;
-        }
-        .right{
-            float: right;
-            width: 100px;
-        }
-        .about{
-            width: 100px;
-            height: 50px;
-            text-align: center;
-            padding-top: 20px;
-        }
-        .home:hover{
-            background-color: darkorange;
-            transition: 0.5s;
-            cursor: pointer;
-        }
-        .about:hover{
-            background-color: darkorange;
-            transition: 0.5s;
-            cursor: pointer;
-        }
-        .games:hover{
-            
-            cursor: pointer;
-        }
-        .heroes:hover{
-            cursor: pointer;
-            background-color: darkorange;
-            transition: 0.5s;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="data.css">
 </head>
 <body>
     <form action="game.html" method="get">
@@ -136,38 +31,8 @@
             </div>
         </div>
     </form>
-    <script>
-        document.getElementById("result").style.backgroundImage=localStorage.getItem("textvalue");
-        $.getJSON("https://api.opendota.com/api/heroStats ", function(result){
-            var hasil2 = localStorage.getItem("textvalue2");
-            for(let i=0;i<result.length;i++){
-                if(hasil2 == result[i].id){
-                    document.querySelector("#name").innerHTML="Hero name: "+result[i].localized_name;
-                    var atr = result[i].primary_attr;
-                    var base = parseInt(result[i].base_attack_min);
-                    var bonusstr = parseInt(result[i].base_str);
-                    var bonusagi = parseInt(result[i].base_agi);
-                    var bonusint = parseInt(result[i].base_int);
-                    var bonushealth = bonusstr*20;
-                    var health = parseInt(result[i].base_health);
-                    var totalhealth = bonushealth+health
-                    if(atr == "str"){
-                        document.getElementById("attack").innerHTML="<img src='str.jpg' width='80px'>";
-                        document.getElementById("baseattack").innerHTML="Attack: "+ (base + bonusstr);
-                    }
-                    if(atr == "agi"){
-                        document.getElementById("attack").innerHTML="<img src='agi.jpg' width='80px'>";
-                        document.getElementById("baseattack").innerHTML="Attack: "+ (base + bonusagi);
-                    }
-                    if(atr == "int"){
-                        document.getElementById("attack").innerHTML="<img src='int.jpg' width='80px'>";
-                        document.getElementById("baseattack").innerHTML="Attack: "+ (base + bonusint);
-                    }
-                    document.getElementById("health").innerHTML="Health: "+totalhealth;
-                    document.getElementById("icon").innerHTML="Icon: <img src='https://api.opendota.com"+result[i].icon+"'>";
-                }
-            }
-        });
+    <script src="data.js">
+       
     </script>
 </body>
 </html>

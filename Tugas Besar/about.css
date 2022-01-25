@@ -1,0 +1,79 @@
+body{
+            background-image: url("background.jpg");
+            background-size: cover;
+            margin: 0%;
+            font-family: 'Dongle', sans-serif;
+        }
+        .navbar{
+            width: 100%;
+            height: 70px;
+            background-color: chocolate;
+            font-family: 'Playfair Display', serif;
+        }
+        .home{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .heroes{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .games{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .right{
+            float: right;
+            width: 100px;
+        }
+        .about{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            background-color: orangered;
+        }
+        .home:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .about:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .games:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .heroes:hover{
+            cursor: pointer;
+        }
+        h1{
+            text-align: center;
+            color: white;
+        }
+        p{
+            text-align: center;
+            font-size: xx-large;
+            color: white;
+        }
+        hr{
+            width: 800px;
+        }
+        .one{
+            width: 700px;
+            text-align: center;
+            margin: auto;
+        }

@@ -1,0 +1,94 @@
+.container{
+            height: 300px;
+            width: 900px;
+            margin: 100px auto;
+        }
+        .icon{
+            width: 256px;
+            height: 144px;
+            background-size: cover;
+            margin: auto;
+        }
+        .kotak{
+            float: left;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+        }
+        #nama1, #nama2, #nama3{
+            text-align: center;
+            color: white;
+            font-size: xx-large;
+        }
+
+        .icon:hover{
+            cursor: pointer;
+            border: 2px solid red;
+        }
+        body{
+            background-image: url("background.jpg");
+            background-size: cover;
+            margin: 0%;
+            font-family: 'Dongle', sans-serif;
+        }
+        h1{
+            text-align: center;
+            color: white;
+        }
+        .navbar{
+            width: 100%;
+            height: 70px;
+            background-color: chocolate;
+            font-family: 'Playfair Display', serif;
+        }
+        .home{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .heroes{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+        }
+        .games{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            float: left;
+            background-color: orangered;
+        }
+        .right{
+            float: right;
+            width: 100px;
+        }
+        .about{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .home:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .about:hover{
+            background-color: darkorange;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .games:hover{
+            
+            cursor: pointer;
+        }
+        .heroes:hover{
+            cursor: pointer;
+            background-color: darkorange;
+            transition: 0.5s;
+        }
